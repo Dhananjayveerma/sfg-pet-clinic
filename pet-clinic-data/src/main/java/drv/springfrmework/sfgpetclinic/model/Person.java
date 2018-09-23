@@ -3,7 +3,7 @@ package drv.springfrmework.sfgpetclinic.model;
 /*
 * Created by it 2018/09/12
 * */
-public class Person {
+public class Person extends BaseEntity{
 
     private String firstName;
     private String lastName;
