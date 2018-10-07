@@ -1,4 +1,4 @@
-package controllers;
+package drv.springfrmework.sfgpetclinic.controllers;
 
 
 import org.springframework.stereotype.Controller;
