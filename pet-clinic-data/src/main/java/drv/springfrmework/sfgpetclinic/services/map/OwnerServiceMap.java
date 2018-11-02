@@ -31,29 +31,29 @@ public OwnerServiceMap(PetTypeService petTypeService, PetService petService){
     @Override
     public Owner save(Owner object) {
 
-   if(object!=null){
-
-       if(object.getPets()!=null){
-
-           object.getPets().forEach(pet -> {
-               if(pet.getPetType()!=null){
-                    if(pet.getPetType().getId() == null){
+        if(object != null){
+            if (object.getPets() != null) {
+                object.getPets().forEach(pet -> {
+                    if (pet.getPetType() != null){
+                        if(pet.getPetType().getId() == null){
                             pet.setPetType(petTypeService.save(pet.getPetType()));
-                    }else{
-                        throw new RuntimeException("Pet Type Is Required ");
+                        }
+                    } else {
+                        throw new RuntimeException("Pet Type is required");
                     }
-               }
-               if(pet.getId() == null){
-                    Pet savePet = petService.save(pet);
-                    pet.setId(savePet.getId());
-               }
-           });
-       }
 
-       return super.save(object);
-   }else{
-       return null;
-   }
+                    if(pet.getId() == null){
+                        Pet savedPet = petService.save(pet);
+                        pet.setId(savedPet.getId());
+                    }
+                });
+            }
+
+            return super.save(object);
+
+        } else {
+            return null;
+        }
 
     }
 
