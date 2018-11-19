@@ -15,9 +15,15 @@ public class VetController {
         this.vetService = vetService;
     }
 
-    @RequestMapping({"","/","/index","/index.html"})
+    @RequestMapping({"","/","/vets/index.html","/vets.html"})
     public String listVets(Model model){
          model.addAttribute("vets", vetService.findAll());
         return  "vets/index";
+    }
+
+    @RequestMapping({"/find"})
+    public  String findOwners(Model model){
+        model.addAttribute("vets", vetService.findAll());
+        return "notimplemented";
     }
 }
