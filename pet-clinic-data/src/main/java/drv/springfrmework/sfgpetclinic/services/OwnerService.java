@@ -2,6 +2,7 @@ package drv.springfrmework.sfgpetclinic.services;
 
 import drv.springfrmework.sfgpetclinic.model.Owner;
 
+import java.util.List;
 import java.util.Set;
 
 /*
@@ -10,6 +11,6 @@ import java.util.Set;
 public interface OwnerService extends  CrudService <Owner,Long> {
 
     Owner findByLastName(String lastName);
-
+    public List<Owner> findAllByLastNameLike(String lastName);
 
 }
